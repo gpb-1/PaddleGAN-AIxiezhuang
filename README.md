@@ -1,6 +1,6 @@
 # README
 AI卸妆
-CycleGAN实现"AI卸妆"(更新paddlepaddle2.2.0)
+PaddleGAN实现"AI卸妆"(更新paddlepaddle2.2.0)
 ===
 ***
 一、项目背景介绍
