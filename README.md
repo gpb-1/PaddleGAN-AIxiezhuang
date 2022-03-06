@@ -62,18 +62,7 @@ CycleGAN可以利用非成对(Unpaired)的图片进行图像翻译，即输入�
 ### ***将制作好的数据集路径输入，并配置好训练参数：训练轮数，batchsize, checkpoint保存路径等，运行train.py(记得及时删除训练过程中产生的图片以及checkpoint,防止内存爆炸)***
 
 ```
-!python gan/train.py --model_net CycleGAN \
-                        --dataset /home/aistudio/dataset/dataset \
-                        --batch_size 1 \
-                        --net_G resnet_9block \
-                        --g_base_dim 32 \
-                        --net_D basic \
-                        --norm_type batch_norm \
-                        --epoch 150 \
-                        --image_size 286 \
-                        --crop_size 256 \
-                        --crop_type Random \
-                        --output ./output/cyclegan/
+!python -u PaddleGAN/tools/main.py --config-file PaddleGAN/configs/cyclegan_cityscapes.yaml 
 ```
 
 
@@ -90,17 +79,7 @@ CycleGAN可以利用非成对(Unpaired)的图片进行图像翻译，即输入�
 ### 运行infer.py即可开始“卸妆”
 
 ```
-!python gan/infer.py --init_model output/cyclegan/checkpoints/149/ \
-                        --dataset_dir /home/aistudio/ \
-                        --image_size 256 \
-                        --n_samples 1 \
-                        --crop_size 256 \
-                        --input_style A \
-                        --test_list /home/aistudio/test_list.txt \
-                        --model_net CycleGAN \
-                        --net_G resnet_9block \
-                        --g_base_dims 32 \
-                        --output ./infer_result/cyclegan/
+!python PaddleGAN/tools/main.py --config-file PaddleGAN/configs/cyclegan_cityscapes.yaml --evaluate-only --load output_dir/cyclegan_cityscapes-2022-02-27-23-31/epoch_95_weight.pdparams
 ```
 ### 预测结果
 #### AI卸妆效果如下
