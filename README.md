@@ -1,5 +1,5 @@
 # README
-AI卸妆
+
 PaddleGAN实现"AI卸妆"(更新paddlepaddle2.2.0)
 ===
 ***
